@@ -37,10 +37,41 @@ class AnbimaConnect:
 
 class AnbimaFeed:
 
-    ACCESS_TOKEN = "GkivA66rn8pH"
-    TOKEN_TYPE = "access_token"
+    SANDBOX = {
+        "client_id": "O4gotNUBB6MC",
+        "access_token": "6KWfngKIAuZR",
+        "token_type": "access_token",
+        "url": "https://api-sandbox.anbima.com.br"
+    }
+
+    PRODUCTION = {
+        "client_id": "O4gotNUBB6MC",
+        "access_token": "xxxxxxxx",
+        "token_type": "access_token",
+        "url": "https://api.anbima.com.br"
+    }
+
+    def __init__(self):
+        self.header_get = {
+            "Content-type": "application/json",
+            "client_id": AnbimaFeed.SANDBOX['client_id'],
+            "access_token": AnbimaFeed.SANDBOX['access_token']
+        }
+
+    def get_fund_info(self):
+        params = {
+            'cnpj_fundo': '35828705000186',
+        }
+        url = f'{AnbimaFeed.SANDBOX["url"]}/feed/fundos/v1/fundos/cnpj_fundo/35828705000186/serie_historica'
+        session = requests.Session()
+        response = session.get(url=url, params=params, headers=self.header_get)
+        return response.text
 
 
 if __name__ == '__main__':
+    #token = AnbimaConnect()
+    #print(token.request_key())
+    teste = AnbimaFeed()
+    print(teste.get_fund_info())
 
 
