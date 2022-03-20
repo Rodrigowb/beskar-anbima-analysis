@@ -14,4 +14,9 @@ The main object of this test is to verify if this information source will be use
 ## beskar-anbima.py
 Provides the connection to the API Sandbox, using a 64 based encoded.
 Furthermore, it testa an API Get Request to get informations of a specific fund.
-
+# Technologies used
+1. Command Line
+2. Git
+3. Anaconda
+4. Python
+5. ANBIMA API
