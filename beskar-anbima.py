@@ -25,7 +25,7 @@ class AnbimaConnect:
 
     def request_key(self):
         """
-        Crestes a post request to the ANBIMA REST API
+        Creates a post request to the ANBIMA REST API
         :return: ANBIMA access_token, token_type, expires_in
         """
         aut = requests.post(url=AnbimaConnect.URL,
@@ -69,9 +69,9 @@ class AnbimaFeed:
 
 
 if __name__ == '__main__':
-    #token = AnbimaConnect()
-    #print(token.request_key())
-    teste = AnbimaFeed()
-    print(teste.get_fund_info())
+    token = AnbimaConnect()
+    print(token.request_key())
+    test = AnbimaFeed()
+    print(test.get_fund_info())
 
 
